@@ -1,1 +1,1 @@
-# Module for better-serve
+# Module for [better-serve](https://github.com/arabisaldrin/better-serve)

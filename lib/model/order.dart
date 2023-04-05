@@ -25,6 +25,8 @@ class Order {
   String get statusName =>
       {0: "onhold", 1: "pending", 2: "processing", 3: "done"}[status]!;
 
+  bool removing = false;
+
   Order({
     required this.id,
     required this.itemCount,

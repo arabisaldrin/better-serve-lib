@@ -65,6 +65,24 @@ class Order {
               ? Coupon.fromJson(json["coupon"])
               : null,
         );
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "item_count": itemCount,
+      "order_amount": orderAmount,
+      "payment_amount": paymentAmount,
+      "grand_total": grandTotal,
+      "order_date": orderDate,
+      "order_time": orderTime,
+      "status": status,
+      "queue_number": queueNumber,
+      "discount_type": discountType,
+      "discount_amount": discountAmount,
+      "discount_rate": discountRate,
+      "coupon_id": coupon?.id,
+    };
+  }
 }
 
 class OrderItem {
@@ -115,6 +133,20 @@ class OrderItem {
                 .map((e) => OrderItemAddon.fromJson(e))
                 .toList(),
             product: Product.fromJson(json["product"]));
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "order_id": orderId,
+      "product_name": productName,
+      "product_img": productImg,
+      "variation_name": variationName,
+      "variation_value": variationValue,
+      "quantity": quantity,
+      "unit_price": unitPrice,
+      "sub_total": subTotal
+    };
+  }
 }
 
 class OrderItemAttribute {

@@ -14,15 +14,6 @@ class Attribute {
       options: options.map((e) => e.clone()).toList(),
       type: type);
 
-  dynamic toJson() {
-    return {
-      "id": id,
-      "name": name,
-      "is_multiple": type == AttributeType.multiple,
-      "options": options.map((e) => e.toJson()).toList()
-    };
-  }
-
   Attribute.fromJson(dynamic json)
       : this(
             id: json["id"],
@@ -33,6 +24,15 @@ class Attribute {
             options: (json["options"] as List<dynamic>)
                 .map((e) => AttributeOption.fromJson(e))
                 .toList());
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "name": name,
+      "is_multiple": type == AttributeType.multiple,
+      "options": options.map((e) => e.toJson()).toList()
+    };
+  }
 }
 
 class AttributeOption {
@@ -59,10 +59,6 @@ class AttributeOption {
         isDefault: isDefault);
   }
 
-  dynamic toJson() {
-    return {"id": id, "value": value, "is_selected": selected, "order": order};
-  }
-
   AttributeOption.fromJson(dynamic json)
       : this(
           id: json["id"],
@@ -71,6 +67,10 @@ class AttributeOption {
           order: json["order"],
           isDefault: json["is_selected"],
         );
+
+  Map<String, dynamic> toJson() {
+    return {"id": id, "value": value, "is_selected": selected, "order": order};
+  }
 }
 
 enum AttributeType {

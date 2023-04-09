@@ -13,12 +13,6 @@ class Variation {
   Variation clone() => Variation(
       id: id, name: name, options: options.map((e) => e.clone()).toList());
 
-  dynamic toJson() => {
-        "id": id,
-        "name": name,
-        "options": options.map((e) => e.toJson()).toList()
-      };
-
   Variation.fromJson(dynamic json)
       : this(
             id: json["id"],
@@ -26,6 +20,12 @@ class Variation {
             options: (json["options"] as List<dynamic>)
                 .map((e) => VariationOption.fromJson(e))
                 .toList());
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "name": name,
+        "options": options.map((e) => e.toJson()).toList()
+      };
 }
 
 class VariationOption {
@@ -51,9 +51,6 @@ class VariationOption {
       selected: selected,
       isDefault: isDefault);
 
-  dynamic toJson() =>
-      {"id": id, "value": value, "price": price, "is_selected": selected};
-
   VariationOption.fromJson(dynamic json)
       : this(
           id: json["id"],
@@ -62,4 +59,7 @@ class VariationOption {
           selected: json["is_selected"],
           isDefault: json["is_selected"],
         );
+
+  Map<String, dynamic> toJson() =>
+      {"id": id, "value": value, "price": price, "is_selected": selected};
 }

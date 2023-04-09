@@ -17,4 +17,14 @@ class Coupon {
               json["discount_value"],
             ),
             json["description"]);
+
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "code": code,
+      "discount_type": discount.type,
+      "discount_value": discount.value,
+      "description": description,
+    };
+  }
 }

@@ -26,17 +26,6 @@ class Product {
     categoryId = category.id;
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'base_price': basePrice,
-      'img_url': imgPath,
-      'category_id': category.id,
-      'allow_addon': allowAddon,
-    };
-  }
-
   Product.fromJson(Map<String, dynamic> json)
       : this(
             id: json['id'],
@@ -51,4 +40,15 @@ class Product {
                 .map((e) => Attribute.fromJson(e))
                 .toList(),
             allowAddon: json["allow_addon"]);
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'base_price': basePrice,
+      'img_url': imgPath,
+      'category_id': category.id,
+      'allow_addon': allowAddon,
+    };
+  }
 }

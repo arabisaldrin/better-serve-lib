@@ -10,6 +10,13 @@ class Addon {
       required this.price,
       required this.imgPath});
 
+  Addon.fromJson(dynamic json)
+      : this(
+            id: json["id"],
+            name: json["name"],
+            price: json["price"],
+            imgPath: json["img_path"]);
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -18,13 +25,6 @@ class Addon {
       'img_path': imgPath,
     };
   }
-
-  Addon.fromJson(dynamic json)
-      : this(
-            id: json["id"],
-            name: json["name"],
-            price: json["price"],
-            imgPath: json["img_path"]);
 
   Addon clone() {
     return Addon(id: id, name: name, price: price, imgPath: imgPath);

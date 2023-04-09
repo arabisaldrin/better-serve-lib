@@ -13,15 +13,6 @@ class Category {
     this.productCount = 0,
   });
 
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'icon': icon,
-      'order': order,
-    };
-  }
-
   Category.fromJson(Map<String, dynamic> json)
       : this(
           id: json['id'],
@@ -30,4 +21,13 @@ class Category {
           order: json['order'],
           productCount: json['product_count'] ?? 0,
         );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'icon': icon,
+      'order': order,
+    };
+  }
 }

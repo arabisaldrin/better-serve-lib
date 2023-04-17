@@ -22,7 +22,7 @@ class Coupon {
     return {
       "id": id,
       "code": code,
-      "discount_type": discount.type,
+      "discount_type": discount.type.name,
       "discount_value": discount.value,
       "description": description,
     };

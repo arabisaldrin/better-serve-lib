@@ -16,7 +16,7 @@ class Order {
   final int paymentAmount;
   String? discountType;
   int? discountAmount;
-  int? discountRate;
+  int? discountValue;
   Coupon? coupon;
   int status;
 
@@ -40,7 +40,7 @@ class Order {
     required this.paymentAmount,
     this.discountType,
     this.discountAmount,
-    this.discountRate,
+    this.discountValue,
     this.coupon,
   });
 
@@ -60,7 +60,7 @@ class Order {
           queueNumber: json["queue_number"],
           discountType: json["discount_type"],
           discountAmount: json["discount_amount"],
-          discountRate: json["discount_rate"],
+          discountValue: json["discount_value"],
           coupon: json["coupon_id"] != null
               ? Coupon.fromJson(json["coupon"])
               : null,
@@ -79,7 +79,7 @@ class Order {
       "queue_number": queueNumber,
       "discount_type": discountType,
       "discount_amount": discountAmount,
-      "discount_rate": discountRate,
+      "discount_value": discountValue,
       "coupon_id": coupon?.id,
     };
   }

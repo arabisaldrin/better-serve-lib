@@ -4,9 +4,9 @@ class Coupon {
   final int id;
   final String code;
   final Discount discount;
-  final String description;
+  final String? description;
 
-  Coupon(this.id, this.code, this.discount, [this.description = ""]);
+  Coupon(this.id, this.code, this.discount, [this.description]);
 
   Coupon.fromJson(dynamic json)
       : this(

@@ -20,11 +20,6 @@ class Order {
   Coupon? coupon;
   int status;
 
-  bool get isPending => status == OrderStatus.pending.ordinal;
-
-  String get statusName =>
-      {0: "onhold", 1: "pending", 2: "processing", 3: "done"}[status]!;
-
   bool removing = false;
 
   Order({

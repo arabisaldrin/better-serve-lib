@@ -35,8 +35,6 @@ class VariationOption {
   late bool selected;
   late bool isDefault;
 
-  bool get isBlank => value.isEmpty || price == 0;
-
   VariationOption(
       {this.id,
       this.value = "",
